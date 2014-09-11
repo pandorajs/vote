@@ -30,7 +30,7 @@ define(function(require, exports, module) {
             self.params.action = '1';
             self.state(Core.STATE.SENDING);
             self.dataServer(function(data) {
-                callBack.call(self, data);
+                callBack && callBack.call(self, data);
                 self.fire('support', data);
             });
         },
@@ -44,7 +44,7 @@ define(function(require, exports, module) {
             self.params.action = '2';
             self.state(Core.STATE.SENDING);
             self.dataServer(function(data) {
-                callBack.call(self, data);
+                callBack && callBack.call(self, data);
                 self.fire('oppose', data);
             });
         },

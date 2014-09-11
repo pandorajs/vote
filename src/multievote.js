@@ -79,10 +79,15 @@ define(function(require, exports, module) {
                 self.state(Core.STATE.SENDING);
                 item.support(function(data) {
                     self.state(Core.STATE.NORMAL);
-                    callBack.call(self, data);
+                    callBack && callBack.call(self, data);
                     self.fire('vote', data);
                 });
             }
+        },
+
+        done: function(data) {
+            this.state(Core.STATE.NORMAL);
+            return true;
         },
 
         /**

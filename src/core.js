@@ -102,7 +102,7 @@ define(function(require, exports, module) {
             self.params.action = '0';
             self.state(STATE.RECEIVING);
             self.dataServer(function(data) {
-                callBack.apply(self, arguments);
+                callBack && callBack.call(self, data);
                 self.fire('load', data);
             });
         },
@@ -119,9 +119,7 @@ define(function(require, exports, module) {
                 if (self.done(resData)) {
                     data = self.parseData(resData);
                     self.state(Core.STATE.NORMAL);
-                    if (callBack) {
-                        callBack.call(self, data);
-                    }
+                    callBack && callBack.call(self, data);
                 }
             }, function() {
                 self.fail('-1'); //非业务异常，网络或服务器异常等.

@@ -35,7 +35,7 @@ define(function(require, exports, module) {
             self.params.mood = key;
             self.state(Core.STATE.SENDING);
             self.dataServer(function(data) {
-                callBack.apply(self, data);
+                callBack && callBack.apply(self, data);
                 self.fire('vote', data);
             });
             return true;
