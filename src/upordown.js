@@ -23,6 +23,7 @@ define(function(require, exports, module) {
 
         /**
          * 支持
+         * @param  {function} callBack 回调函数
          */
         support: function(callBack) {
             var self = this;
@@ -36,6 +37,7 @@ define(function(require, exports, module) {
 
         /**
          * 反对
+         * @param  {function} callBack 回调函数
          */
         oppose: function(callBack) {
             var self = this;
