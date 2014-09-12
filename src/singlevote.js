@@ -55,7 +55,9 @@ define(function(require, exports, module) {
             var itemCount;
             var arr = data.match(/\d+(?!#|\d)/g);
             var max = Math.max.apply(null, arr);
-            var total = eval(arr.join('+'));
+
+            var total = (new Function('return ' + arr.join('+') ))();
+            //var total = eval(arr.join('+'));
 
             for (var i = arr.length - 1; i >= 0; i--) {
                 itemCount = parseInt(arr[i], 10);
@@ -64,7 +66,7 @@ define(function(require, exports, module) {
                     percent: itemCount / total * 100,
                     viewPercent: itemCount / max * 100,
                     isMax: itemCount === max
-                }
+                };
             }
 
             tmp.max = max;
