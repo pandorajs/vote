@@ -8,15 +8,15 @@ define(function(require, exports, module) {
 
     var $ = require('$'),
         Core = require('./core'),
-        UpOrDown = require('./upordown');
+        Support = require('./support');
 
     /**
-     * 多选投票
-     * @class MultieVote
+     * 多选投票,基于顶踩接口
+     * @class MultipleVote
      * @extends core
      * @constructs
      */
-    var MultieVote = Core.extend({
+    var MultipleVote = Core.extend({
 
         defaults: {
 
@@ -61,7 +61,7 @@ define(function(require, exports, module) {
             for (var i = webIds.length - 1; i >= 0; i--) {
                 item = '' + channel + webIds[i] + categoryId;
                 keyList.push(item);
-                self.votes[item] = self.webIdMap[webIds[i]] = new UpOrDown({
+                self.votes[item] = self.webIdMap[webIds[i]] = new Support({
                     channel: channel,
                     kind: categoryId,
                     webId: webIds[i]
@@ -138,6 +138,6 @@ define(function(require, exports, module) {
         }
     });
 
-    module.exports = MultieVote;
+    module.exports = MultipleVote;
 
 });

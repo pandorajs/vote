@@ -11,11 +11,11 @@ define(function(require, exports, module) {
 
     /**
      * 顶踩
-     * @class UpOrDown
+     * @class Support
      * @extends core
      * @constructs
      */
-    var UpOrDown = Core.extend({
+    var Support = Core.extend({
 
         defaults: {
             url: 'http://hits.17173.com/support/support_opb.php'
@@ -81,6 +81,6 @@ define(function(require, exports, module) {
 
     });
 
-    module.exports = UpOrDown;
+    module.exports = Support;
 
 });
