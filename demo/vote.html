@@ -24,12 +24,12 @@
         });
 
         upOrDown.support();
-        upOrDown.oppose();
+        //upOrDown.oppose();
 
     });
 
 
-    pandora.use(['pandora/vote/1.0.0/multievote'], function(MultieVote) {
+    pandora.use(/*['pandora/vote/1.0.0/multievote'*/ ['../src/multievote' ], function(MultieVote) {
 
         var multieVote = new MultieVote({
             channel: '10009',

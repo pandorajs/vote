@@ -20,10 +20,16 @@ define(function(require, exports, module) {
 
         defaults: {
 
+            /**
+             * 投票URL接口
+             * @attribute url
+             * @type {String}
+             */
             url: 'http://hits.17173.com/port/hit_batch_read.php',
 
             /**
-             * 页面ID列表
+             * 页面ID列表, 基于顶踩的接口，如果要进行多选投票，必需申请多个页面ID
+             * @attribute webIds
              * @type {Array}
              */
             webIds: [],
@@ -37,6 +43,7 @@ define(function(require, exports, module) {
 
         /**
          * 创建参数和投票项
+         * @method createParams
          * @return {Object} 参数对象
          * @private
          */
@@ -70,6 +77,7 @@ define(function(require, exports, module) {
 
         /**
          * 投票
+         * @method vote
          * @param  {string} webId 页面ID
          */
         vote: function(webId, callBack) {
@@ -94,6 +102,7 @@ define(function(require, exports, module) {
          * 解析数据
          * { 9000811361325:'7#22',9000811361655:'29#10', 9000811361635:'54#6' }
          *
+         * @method parseData
          * @param  {Object} data 原始数据
          * @return {Object}      加工后的数据
          * @private

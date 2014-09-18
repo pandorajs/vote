@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     /**
-     * 顶踩
+     * 投票
      *
      * @module Vote
      */
@@ -23,6 +23,7 @@ define(function(require, exports, module) {
 
         /**
          * 支持
+         * @method support
          * @param  {function} callBack 回调函数
          */
         support: function(callBack) {
@@ -37,6 +38,7 @@ define(function(require, exports, module) {
 
         /**
          * 反对
+         * @method oppose
          * @param  {function} callBack 回调函数
          */
         oppose: function(callBack) {
@@ -51,6 +53,7 @@ define(function(require, exports, module) {
 
         /**
          * 解析数据
+         * @method parseData
          * @param  {Object} data 原始数据
          * @return {Object}      加工后的数据
          * @private

@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     /**
-     * 单选投票，基于表情投票接口，最多可创建10个选择项。
+     * 投票
      *
      * @module Vote
      */
@@ -10,7 +10,7 @@ define(function(require, exports, module) {
         Core = require('./core');
 
     /**
-     * 单选投票
+     * 单选投票,基于表情投票接口，最多可创建10个选择项。
      * @class SingleVote
      * @extends core
      * @constructs
@@ -23,7 +23,9 @@ define(function(require, exports, module) {
 
         /**
          * 投票
+         * @method vote
          * @param  {string} key 投票号,如1、2、3…… 到10
+         * @return {Boolean} 投票号不合格返回false,否则返回true
          */
         vote: function(key, callBack) {
             var self = this;
@@ -44,7 +46,7 @@ define(function(require, exports, module) {
         /**
          * 解析数据
          * 1#9,2#2,3#4,4#4,5#3,6#2,7#2,8#2,9#5,10#4
-         *
+         * @method parseData
          * @param  {string} data 原始数据
          * @return {Object}      加工后的数据
          * @private
@@ -55,10 +57,8 @@ define(function(require, exports, module) {
             var itemCount;
             var arr = data.match(/\d+(?!#|\d)/g);
             var max = Math.max.apply(null, arr);
-
             var total = (new Function('return ' + arr.join('+') ))();
             //var total = eval(arr.join('+'));
-
             for (var i = arr.length - 1; i >= 0; i--) {
                 itemCount = parseInt(arr[i], 10);
                 tmp[i + 1] = {
@@ -68,7 +68,6 @@ define(function(require, exports, module) {
                     isMax: itemCount === max
                 };
             }
-
             tmp.max = max;
             tmp.total = total;
             tmp.original = data;

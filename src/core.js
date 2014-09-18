@@ -31,36 +31,42 @@ define(function(require, exports, module) {
 
             /**
              * 频道ID
+             * @attribute channel
              * @type {String}
              */
             channel: '',
 
             /**
              * 页面Id
+             * @attribute webId
              * @type {String}
              */
             webId: '',
 
             /**
              * 内容类型
+             * @attribute kind
              * @type {String}
              */
             kind: '2',
 
             /**
              * 投票成功提示
+             * @attribute voteTip
              * @type {String}
              */
             voteTip: '投票成功，感谢您的参与',
 
             /**
              * 同一IP重复投票提示
+             * @attribute ipRepeatTip
              * @type {String}
              */
             ipRepeatTip: '您的IP今天已经投过票了, 感谢您的参与',
 
             /**
              * 数据异常提示
+             * @attribute errorTip
              * @type {String}
              */
             errorTip: '数据处理失败'
@@ -81,6 +87,7 @@ define(function(require, exports, module) {
 
         /**
          * 创建参数
+         * @method createParams
          * @return {Object} 参数对象
          * @private
          */
@@ -94,7 +101,8 @@ define(function(require, exports, module) {
         },
 
         /**
-         * 加载
+         * 加载当前投票信息
+         * @method load
          * @param {function} 加载成功的回调方法
          */
         load: function(callBack) {
@@ -109,6 +117,7 @@ define(function(require, exports, module) {
 
         /**
          * 提交或获取数据
+         * @method dataServer
          * @param  {function} callBack   成功回调
          * @private
          */
@@ -128,6 +137,7 @@ define(function(require, exports, module) {
 
         /**
          * 数据接口
+         * @method getData
          * @param  {object}   params 请求参数
          * @param  {function} done   成功回调
          * @param  {function} fail   失败回调
@@ -141,6 +151,7 @@ define(function(require, exports, module) {
 
         /**
          * 处理请求成功数据
+         * @method done
          * @param  {object}   data   成功数据
          * @private
          */
@@ -179,6 +190,7 @@ define(function(require, exports, module) {
 
         /**
          * 请求失败
+         * @method fail
          * @param  {string}  flag    失败类型标识
          * @private
          */
@@ -194,6 +206,7 @@ define(function(require, exports, module) {
 
         /**
          * 解析数据
+         * @method parseData
          * @return {object} 解析完的数据
          */
         parseData: function() {
@@ -202,6 +215,8 @@ define(function(require, exports, module) {
 
         /**
          * 显示提示信息
+         * @method showTips
+         * @param {String} info 要提示的信息
          * @private
          */
         showTips: function(info) {
