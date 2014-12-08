@@ -11,42 +11,42 @@
 
 
     <script>
-    pandora.use(['pandora/vote/1.0.0/upordown'], function(UpOrDown) {
+    pandora.use(['support'], function(Support) {
 
-        var upOrDown = new UpOrDown({
+        var support = new Support({
             channel: '10009',
             webId: '1401249539',
             kind: '1'
         });
 
-        upOrDown.load(function(data) {
+        support.load(function(data) {
             console.log(data);
         });
 
-        upOrDown.support();
+        support.support();
         //upOrDown.oppose();
 
     });
 
 
-    pandora.use(/*['pandora/vote/1.0.0/multievote'*/ ['../src/multievote' ], function(MultieVote) {
+    pandora.use(['multiplevote' ], function(MultipleVote) {
 
-        var multieVote = new MultieVote({
+        var multiplevote = new MultipleVote({
             channel: '10009',
             webIds: ['1401249560', '1401249525', '1401249527', '1401249530', '1401249569'],
             kind: '1'
         });
 
-        multieVote.load(function(data) {
+        multiplevote.load(function(data) {
             console.log(data);
         });
 
-        multieVote.vote('1401249569');
+        multiplevote.vote('1401249569');
 
     });
 
 
-    pandora.use(['pandora/vote/1.0.0/singlevote'], function(SingleVote) {
+    pandora.use(['singlevote'], function(SingleVote) {
         var singleVote = new SingleVote({
             channel: '10009',
             kind: '1',
